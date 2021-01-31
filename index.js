@@ -12,40 +12,14 @@ const PORT = process.env.PORT || 8000;
 
 const app = express();
 
-let server = app.listen(PORT, () => {
-  console.log(`Server is running on ${PORT}`);
-});
 
 const publicDirectoryPath = path.join(__dirname, "/public");
 
 app.use(express.static(publicDirectoryPath));
 
-app.get("/jobs", (req,res)=>{
-  return res.render('job',{
-      title:"Home Page"
-  });
+let server = app.listen(PORT, () => {
+  console.log(`Server is running on ${PORT}`);
 });
-
-app.get("/books", (req,res)=>{
-  return res.render('books',{
-      title:"Home Page"
-  });
-});
-
-app.get("/codetogether", (req,res)=>{
-  return res.render('job',{
-      title:"Home Page"
-  });
-});
-
-app.get("/dashboard", (req,res)=>{
-  return res.render('job',{
-      title:"Home Page"
-  });
-});
-
-
-
 
 const io = socket(server);
 
@@ -91,3 +65,31 @@ io.on("connection", (socket) => {
     }
   });
 });
+
+
+app.get("/jobs", (req,res)=>{
+  return res.render('job',{
+      title:"Home Page"
+  });
+});
+
+app.get("/books", (req,res)=>{
+  return res.render('books',{
+      title:"Home Page"
+  });
+});
+
+app.get("/codetogether", (req,res)=>{
+  return res.render('job',{
+      title:"Home Page"
+  });
+});
+
+app.get("/dashboard", (req,res)=>{
+  return res.render('job',{
+      title:"Home Page"
+  });
+});
+
+
+

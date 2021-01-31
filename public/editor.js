@@ -1,4 +1,4 @@
-const socket = io.connect("http://localhost:8000");
+const socket = io.connect("/");
 
 // const editor = document.querySelector("#editor");
 
